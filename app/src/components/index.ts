@@ -1,3 +1,4 @@
 import Input from "./Input/Input";
+import { CreateCccountButton } from "./Button/Button";
 
-export { Input };
+export { Input, CreateCccountButton };

@@ -1,12 +1,14 @@
 import styled from "styled-components/native";
 import { colors } from "../../global/styles";
-const InputAccount = styled.TextInput`
+
+const Button = styled.TouchableOpacity`
   background-color: ${colors["color-01"]};
 
-  width: 80%;
+  width: 50%;
   padding: 20px;
+  border-radius: 12px;
 
-  border-radius: 8px;
+  align-items: center;
 `;
 
-export { InputAccount };
+export { Button };
