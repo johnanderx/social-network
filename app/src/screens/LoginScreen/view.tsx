@@ -1,15 +1,15 @@
 import "react-native-gesture-handler";
-import { View } from "react-native";
 import React from "react";
+import { View } from "react-native";
+import { StatusBar } from "expo-status-bar";
 import { useNavigation } from "@react-navigation/native";
-import { Input, CreateCccountButton } from "../../components";
 import { NavigationType } from "../@types/navigation";
 import { TextBase } from "../../base/styles";
+import { Input, CreateCccountButton } from "../../components";
 import * as C from "./styles";
 
-export default function RegisterScreen() {
+export default function LoginScreen() {
   const navigation = useNavigation<NavigationType>();
-
   return (
     <View
       style={{
@@ -19,14 +19,17 @@ export default function RegisterScreen() {
         gap: 8,
       }}
     >
-      <C.Title>Cadastro</C.Title>
-      <Input type="default" text="Seu nome de usuário" />
+      <StatusBar style="dark" />
+      <C.Title>Login</C.Title>
       <Input type="email-address" text="Seu e-mail" />
       <Input type="visible-password" text="Sua senha" />
-      <TextBase onPress={() => navigation.navigate("Login")}>
-        Já tem uma conta? Ir para login.
+      <TextBase onPress={() => navigation.navigate("Register")}>
+        Não tem uma conta? Criar conta.
       </TextBase>
-      <CreateCccountButton textButton="Cadastrar" />
+      <CreateCccountButton
+        textButton="Login"
+        event={() => navigation.navigate("HomeScreen")}
+      />
     </View>
   );
 }

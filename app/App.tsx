@@ -11,6 +11,7 @@ import {
 export default function App() {
   const [fontsLoaded] = useFonts({
     Poppins_400Regular,
+    Poppins_600SemiBold,
     Poppins_700Bold,
   });
 
