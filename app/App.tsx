@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { Route } from "./src/navigations/router";
+import { NavigationContainer } from "@react-navigation/native";
 import { TextBase } from "./src/base/styles";
 
 import {
@@ -18,5 +19,9 @@ export default function App() {
   if (!fontsLoaded) {
     return <TextBase>Fontes não carregadas.</TextBase>;
   }
-  return <Route />;
+  return (
+    <NavigationContainer>
+      <Route />
+    </NavigationContainer>
+  );
 }

@@ -3,7 +3,7 @@ import React from "react";
 import { View } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { useNavigation } from "@react-navigation/native";
-import { NavigationType } from "../@types/navigation";
+import { NavigationType } from "../../@types/navigation";
 import { TextBase } from "../../base/styles";
 import { Input, CreateCccountButton } from "../../components";
 import * as C from "./styles";

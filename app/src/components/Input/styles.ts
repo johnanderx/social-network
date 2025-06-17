@@ -1,12 +1,7 @@
 import styled from "styled-components/native";
-import { colors } from "../../global/styles";
-const InputAccount = styled.TextInput`
-  background-color: ${colors["color-01"]};
+import { Input } from "../../base/styles";
 
-  width: 80%;
-  padding: 20px;
+const AccountInput = styled(Input)``;
+const MessageInput = styled(Input)``;
 
-  border-radius: 8px;
-`;
-
-export { InputAccount };
+export { AccountInput, MessageInput };
