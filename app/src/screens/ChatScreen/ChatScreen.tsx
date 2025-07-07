@@ -4,8 +4,9 @@ import { StatusBar } from "expo-status-bar";
 import { MessageInput } from "../../components/Input/Input";
 import * as C from "./styles";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
-
+import { useNavigation } from "@react-navigation/native";
 export default function ChatScreen() {
+  const navigation = useNavigation();
   return (
     <KeyboardAvoidingView
       style={{ flex: 1 }}
@@ -15,7 +16,12 @@ export default function ChatScreen() {
       <View style={{ flex: 1 }}>
         <StatusBar style="dark" />
         <C.Header>
-          <FontAwesome5 name="arrow-left" size={24} color="black" />
+          <FontAwesome5
+            onPress={() => navigation.goBack()}
+            name="arrow-left"
+            size={24}
+            color="black"
+          />
           <Text>Photo</Text>
           <Text>Nome da pessoa</Text>
         </C.Header>
