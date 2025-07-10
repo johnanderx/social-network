@@ -7,10 +7,8 @@ import * as C from "./styles";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 import { Feed } from "../../components";
-
 export default function HomeScreen() {
   const navigation = useNavigation<NavigationType>();
-
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <StatusBar style="dark" />

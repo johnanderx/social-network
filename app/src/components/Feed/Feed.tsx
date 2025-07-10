@@ -2,7 +2,7 @@ import { View } from "react-native";
 import React from "react";
 import { FlatList } from "react-native";
 import Story from "../Story/Story";
-import Post from "../@Post/Post";
+import Posts from "../Posts/Posts";
 
 export default function Feed() {
   const Data = [
@@ -49,7 +49,7 @@ export default function Feed() {
                 alignItems: "center",
               }}
             >
-              <Post />
+              <Posts />
             </View>
           );
         }}
