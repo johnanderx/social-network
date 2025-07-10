@@ -1,8 +1,7 @@
 import styled from "styled-components/native";
-import { colors } from "../../global/styles";
 
 const Button = styled.TouchableOpacity`
-  background-color: ${colors["color-01"]};
+  background-color: ${(props) => props.theme.button};
 
   width: 50%;
   padding: 20px;

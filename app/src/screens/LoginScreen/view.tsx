@@ -33,14 +33,7 @@ export default function LoginScreen() {
   }, [register]);
 
   return (
-    <View
-      style={{
-        justifyContent: "center",
-        alignItems: "center",
-        flex: 1,
-        gap: 8,
-      }}
-    >
+    <C.Container>
       <StatusBar style="dark" />
       <C.Title>Login</C.Title>
       <AccountInput
@@ -59,6 +52,6 @@ export default function LoginScreen() {
         Não tem uma conta? Criar conta.
       </TextBase>
       <CreateCccountButton textButton="Login" event={handleSubmit(onSubmit)} />
-    </View>
+    </C.Container>
   );
 }

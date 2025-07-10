@@ -1,4 +1,4 @@
 import { NavigationType } from "./navigation";
 import { LoginData, RegisterData } from "./zod";
-
-export { NavigationType, LoginData, RegisterData };
+import { AppTheme } from "./theme";
+export { NavigationType, LoginData, RegisterData, AppTheme };
