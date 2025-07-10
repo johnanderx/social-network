@@ -11,7 +11,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
-const auth = true;
+const auth = false;
 
 export function Route() {
   return auth ? <PrivateRoute /> : <PublicRoute />;

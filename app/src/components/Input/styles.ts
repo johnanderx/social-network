@@ -3,5 +3,5 @@ import { Input } from "../../base/styles";
 
 const AccountInput = styled(Input)``;
 const MessageInput = styled(Input)``;
-
-export { AccountInput, MessageInput };
+const MessageError = styled.TextInput``;
+export { AccountInput, MessageInput, MessageError };
