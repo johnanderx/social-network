@@ -1,6 +1,5 @@
 import "react-native-gesture-handler";
 import React, { useEffect } from "react";
-import { View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import { NavigationType, LoginData } from "../../@types/";
@@ -10,9 +9,10 @@ import { AccountInput, CreateCccountButton } from "../../components";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema } from "../../schema";
-
+import useStore from "../../zustand/store";
 export default function LoginScreen() {
   const navigation = useNavigation<NavigationType>();
+
   const {
     register,
     setValue,
@@ -31,10 +31,10 @@ export default function LoginScreen() {
     register("email");
     register("password");
   }, [register]);
-
+  const { isDarkMode } = useStore();
   return (
     <C.Container>
-      <StatusBar style="dark" />
+      <StatusBar style={isDarkMode ? "light" : "dark"} />
       <C.Title>Login</C.Title>
       <AccountInput
         type="email-address"

@@ -5,25 +5,31 @@ import { MessageInput } from "../../components/Input/Input";
 import * as C from "./styles";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import { useNavigation } from "@react-navigation/native";
+import { useTheme } from "styled-components/native";
+import useStore from "../../zustand/store";
+
 export default function ChatScreen() {
   const navigation = useNavigation();
+  const theme = useTheme();
+  const { isDarkMode } = useStore();
+
   return (
     <KeyboardAvoidingView
-      style={{ flex: 1 }}
+      style={{ flex: 1, backgroundColor: theme.background }}
       behavior={"height"}
       keyboardVerticalOffset={-50}
     >
       <View style={{ flex: 1 }}>
-        <StatusBar style="dark" />
+        <StatusBar style={isDarkMode ? "light" : "dark"} />
         <C.Header>
           <FontAwesome5
             onPress={() => navigation.goBack()}
             name="arrow-left"
             size={24}
-            color="black"
+            color={theme.text}
           />
-          <Text>Photo</Text>
-          <Text>Nome da pessoa</Text>
+          <C.HeaderText>Photo</C.HeaderText>
+          <C.HeaderText>Nome da pessoa</C.HeaderText>
         </C.Header>
         <View
           style={{

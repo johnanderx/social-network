@@ -1,12 +1,14 @@
 import React from "react";
 import * as C from "./styles";
 import { useTheme } from "styled-components/native";
+
 interface InputProps {
   type: "email-address" | "visible-password" | "default";
   text: string;
   error?: string;
   onChangeText?: (text: string) => void;
 }
+
 export function AccountInput({ type, text, error, onChangeText }: InputProps) {
   const theme = useTheme();
   return (
@@ -23,5 +25,12 @@ export function AccountInput({ type, text, error, onChangeText }: InputProps) {
 }
 
 export function MessageInput({ type, text }: InputProps) {
-  return <C.MessageInput keyboardType={type} placeholder={text} />;
+  const theme = useTheme();
+  return (
+    <C.MessageInput
+      keyboardType={type}
+      placeholder={text}
+      placeholderTextColor={theme.placeholder}
+    />
+  );
 }

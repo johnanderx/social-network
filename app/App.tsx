@@ -11,6 +11,8 @@ import {
   Poppins_600SemiBold,
   Poppins_700Bold,
 } from "@expo-google-fonts/poppins";
+import { useEffect } from "react";
+import useStore from "./src/zustand/store";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -20,7 +22,15 @@ export default function App() {
   });
 
   const colorScheme = useColorScheme();
-  const theme = colorScheme === "dark" ? darkTheme : lightTheme;
+  const { isDarkMode, setTheme } = useStore();
+
+  useEffect(() => {
+    if (colorScheme) {
+      setTheme(colorScheme === "dark");
+    }
+  }, [colorScheme, setTheme]);
+
+  const theme = isDarkMode ? darkTheme : lightTheme;
 
   if (!fontsLoaded) {
     return <TextBase>Fontes não carregadas.</TextBase>;

@@ -10,8 +10,11 @@ import { AccountInput, CreateCccountButton } from "../../components";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerSchema } from "../../schema";
+import useStore from "../../zustand/store";
+
 export default function RegisterScreen() {
   const navigation = useNavigation<NavigationType>();
+  const { isDarkMode } = useStore();
 
   const {
     register,
@@ -34,15 +37,8 @@ export default function RegisterScreen() {
   }, [register]);
 
   return (
-    <View
-      style={{
-        justifyContent: "center",
-        alignItems: "center",
-        flex: 1,
-        gap: 8,
-      }}
-    >
-      <StatusBar style="dark" />
+    <C.Container>
+      <StatusBar style={isDarkMode ? "light" : "dark"} />
       <C.Title>Cadastro</C.Title>
       <AccountInput
         type="default"
@@ -69,6 +65,6 @@ export default function RegisterScreen() {
         textButton="Cadastrar"
         event={handleSubmit(onSubmit)}
       />
-    </View>
+    </C.Container>
   );
 }

@@ -9,13 +9,16 @@ import {
 } from "../screens";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { useTheme } from "styled-components/native";
+
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
-const auth = false;
+const auth = true;
 
 export function Route() {
   return auth ? <PrivateRoute /> : <PublicRoute />;
 }
+
 export function PublicRoute() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
@@ -40,18 +43,27 @@ export function PrivateRoute() {
 }
 
 export function TabRoute() {
+  const theme = useTheme();
+
   return (
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
+        tabBarStyle: {
+          backgroundColor: theme.background,
+          borderTopColor: theme.input,
+          borderTopWidth: 1,
+        },
+        tabBarActiveTintColor: theme.button,
+        tabBarInactiveTintColor: theme.text,
       }}
     >
       <Tab.Screen
         name="Home"
         component={HomeScreen}
         options={{
-          tabBarIcon: () => (
-            <Ionicons name="home-outline" size={30} color="black" />
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="home-outline" size={size} color={color} />
           ),
           tabBarShowLabel: false,
         }}
@@ -60,8 +72,8 @@ export function TabRoute() {
         name="Search"
         component={HomeScreen}
         options={{
-          tabBarIcon: () => (
-            <Ionicons name="search-outline" size={30} color="black" />
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="search-outline" size={size} color={color} />
           ),
           tabBarShowLabel: false,
         }}
@@ -70,8 +82,8 @@ export function TabRoute() {
         name="Post"
         component={HomeScreen}
         options={{
-          tabBarIcon: () => (
-            <Ionicons name="add-circle-outline" size={30} color="black" />
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="add-circle-outline" size={size} color={color} />
           ),
           tabBarShowLabel: false,
         }}
@@ -80,8 +92,8 @@ export function TabRoute() {
         name="Rells"
         component={HomeScreen}
         options={{
-          tabBarIcon: () => (
-            <Ionicons name="play-circle-outline" size={30} color="black" />
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="play-circle-outline" size={size} color={color} />
           ),
           tabBarShowLabel: false,
         }}
@@ -90,8 +102,8 @@ export function TabRoute() {
         name="Profile"
         component={HomeScreen}
         options={{
-          tabBarIcon: () => (
-            <MaterialIcons name="manage-accounts" size={30} color="black" />
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="manage-accounts" size={size} color={color} />
           ),
           tabBarShowLabel: false,
         }}
